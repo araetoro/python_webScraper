@@ -1,0 +1,9 @@
+import requests
+from bs4 import BeautifulSoup
+
+r=requests.get("https://www.amazon.com/PicassoTiles-Construction-Inspirational-Recreational-Conventional/dp/B00AU56C5W/ref=lp_14725575011_1_1?s=toys-and-games&ie=UTF8&qid=1553741209&sr=1-1")
+c=r.content
+
+soup=BeautifulSoup(c, "html.parser")
+
+all=soup.find_all("span", {'id':'productTitle'})
